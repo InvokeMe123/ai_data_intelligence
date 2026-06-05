@@ -7,8 +7,9 @@ class DataLoader:
     def load_data(self):
         try:
             data = pd.read_csv(self.file_path)
+            df = pd.DataFrame(data)
             print("Data loaded successfully.")
-            return data
+            return df
         except FileNotFoundError:
             print(f"File not found: {self.file_path}")
         except Exception as e:

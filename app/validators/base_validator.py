@@ -1,5 +1,4 @@
 import pandas as pd
-from data_loader import DataLoader as dl
 
 
 class BaseValidator:
@@ -22,3 +21,4 @@ class BaseValidator:
             print("No missing values in the dataset.")
         else:
             print(f"Percentage of null values in each column:\n{(null_count / len(self.df)) * 100}")
+        return dup_count, null_count
