@@ -1,11 +1,13 @@
 import pandas as pd
 
-
 class BaseValidator:
     def __init__(self, df: pd.DataFrame):
         self.df = df
 
     def base_validator(self):
+        dup_count = 0
+        null_count = pd.Series(0, index=self.df.columns)
+
         #check to see if the dataframe is empty
         if self.df.empty:
             print("The dataframe is empty.")
@@ -21,4 +23,4 @@ class BaseValidator:
             print("No missing values in the dataset.")
         else:
             print(f"Percentage of null values in each column:\n{(null_count / len(self.df)) * 100}")
-        return dup_count, null_count
+        
